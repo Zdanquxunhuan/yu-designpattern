@@ -1,5 +1,9 @@
 package com.yu.designpattern.pipeline;
 
+import com.yu.designpattern.pipeline.test.vegetable.Vegetable;
+
+import java.util.List;
+
 /**
  * 用于管道上下文中数据的扭转
  *
@@ -14,9 +18,9 @@ public interface PipelineContext {
      * set
      *
      * @param contextKey
-     * @param contextValue
+     * @param vegetable
      */
-    void set(String contextKey, Object contextValue);
+    void set(String contextKey, Vegetable vegetable);
 
     /**
      * get
@@ -25,4 +29,10 @@ public interface PipelineContext {
      * @return
      */
     Object get(String contextKey);
+
+    /**
+     * get all
+     * @return
+     */
+    List<Vegetable> getAll();
 }

@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2023/11/17
  */
 @Slf4j
-public abstract class AbstractPipelineValue implements PipelineValue {
+public abstract class AbstractPipelineNode implements PipelineNode {
 
     @Override
     public boolean execute(PipelineContext pipelineContext) {

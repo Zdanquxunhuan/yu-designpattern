@@ -20,12 +20,12 @@ public interface Pipeline {
      * @param pipelineValue
      * @return
      */
-    boolean addValue(PipelineValue pipelineValue);
+    boolean addValue(PipelineNode pipelineValue);
 
     /**
      * remove Value
      * @param pipelineValue
      * @return
      */
-    boolean removeValue(PipelineValue pipelineValue);
+    boolean removeValue(PipelineNode pipelineValue);
 }

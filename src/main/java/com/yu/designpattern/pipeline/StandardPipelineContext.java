@@ -1,7 +1,11 @@
 package com.yu.designpattern.pipeline;
 
+import com.yu.designpattern.pipeline.test.vegetable.Vegetable;
+
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 /**
  * @author zhongcanyu
@@ -9,15 +13,20 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class StandardPipelineContext implements PipelineContext {
 
-    private Map<String, Object> contentMap = new ConcurrentHashMap<>();
+    private Map<String, Vegetable> contentMap = new ConcurrentHashMap<>();
 
     @Override
-    public void set(String contextKey, Object contextValue) {
-        contentMap.put(contextKey, contextValue);
+    public void set(String contextKey, Vegetable vegetable) {
+        contentMap.put(contextKey, vegetable);
     }
 
     @Override
     public Object get(String contextKey) {
         return contentMap.get(contextKey);
+    }
+
+    @Override
+    public List<Vegetable> getAll() {
+        return contentMap.values().stream().collect(Collectors.toList());
     }
 }

@@ -14,12 +14,12 @@ import java.util.List;
 @Slf4j
 public class StandardPipeline implements Pipeline {
 
-    private List<PipelineValue> pipelineValueList = new ArrayList<>();
+    private List<PipelineNode> pipelineValueList = new ArrayList<>();
 
     @Override
     public boolean invoke(PipelineContext pipelineContext) {
         boolean invokeSuccess = true;
-        for (PipelineValue pipelineValue : pipelineValueList) {
+        for (PipelineNode pipelineValue : pipelineValueList) {
             try {
                 invokeSuccess = pipelineValue.execute(pipelineContext);
                 if (!invokeSuccess) {
@@ -33,7 +33,7 @@ public class StandardPipeline implements Pipeline {
     }
 
     @Override
-    public boolean addValue(PipelineValue pipelineValue) {
+    public boolean addValue(PipelineNode pipelineValue) {
         if (pipelineValueList.contains(pipelineValue)) {
             return true;
         }
@@ -41,7 +41,7 @@ public class StandardPipeline implements Pipeline {
     }
 
     @Override
-    public boolean removeValue(PipelineValue pipelineValue) {
+    public boolean removeValue(PipelineNode pipelineValue) {
         return pipelineValueList.remove(pipelineValue);
     }
 }

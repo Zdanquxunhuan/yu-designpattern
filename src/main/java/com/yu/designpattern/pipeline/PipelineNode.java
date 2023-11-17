@@ -6,7 +6,7 @@ package com.yu.designpattern.pipeline;
  * @author zhongcanyu
  * @date 2023/11/17
  */
-public interface PipelineValue {
+public interface PipelineNode {
 
     /**
      * node execution
